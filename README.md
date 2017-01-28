@@ -53,4 +53,19 @@ Another valid approach is the CSRF token, which is a secret in the html page tha
 Here the only defence is requiring user interaction, by having them re-enter their password. This would of course mean that the password of the user is properly protected ;)
 
 ##Flaw 3: A1 - Injection
-##Location
+###Location
+/login
+
+###Reproduction steps
+- go to the /done page
+- identify a username we want to login as
+- This is a Java application, try a jpa injection: name: USERNAME'--
+- Login as USERNAME
+
+###Remediation
+Do not use string concatenation when making database queries!!!!!!!
+For each language there are dedicated frameworks that help you execute queries on your database. For example you can use parameterized or named queries, effectevely disabling any attempt to alter the syntax tree of the query.
+Do input sanitation
+
+##Flaw 4: Missing function level access control
+
