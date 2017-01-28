@@ -78,7 +78,7 @@ Do input sanitation
 Try using the hidden admin functionality ;)
 
 
-##reproduction steps
+###reproduction steps
 - go the the /done page, adding the admin=1 url parameter
 - remove a user
 - capture this request
