@@ -18,7 +18,7 @@ This writeup will always explain the location of the vulnerability first. I advi
 ###Reproduction steps
 - Go to the /form page
 - Establish that both the name and pledge field are displayed on the /done page
-- Insert javascript code into the name field: eg <script>alert(1)</script>
+- Insert javascript code into the name field: eg \<script>alert(1)\</script>
 - Click through to the /done page
 - Anyone landing on the /done page will have the javascript you just inserted executed by their browser
 
