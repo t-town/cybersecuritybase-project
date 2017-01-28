@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Sign up form</title>
+        <title>Thank you!</title>
     </head>
     <body>
 
-        <h1>Sign up to the event using this form</h1>
+           <h1>login please</h1>
 
-        <form action="#" th:action="@{/form1}" method="POST">
+        <form action="#" th:action="@{/login}" method="POST">
             <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
-            <p><label for="address">Address</label>: <input type="text" name="address" id="address"/></p>
             <p><label for="password">password</label>: <input type="text" name="password" id="password"/></p>
-            <p><label for="pledge">pledge</label>: <input type="text" name="pledge" id="pledge"/>EUR</p>
             <p><input type="submit" value="Submit" /></p>
         </form>
-
-        <p></p>
+        
     </body>
 </html>

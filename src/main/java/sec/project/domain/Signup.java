@@ -8,15 +8,27 @@ public class Signup extends AbstractPersistable<Long> {
 
     private String name;
     private String address;
+    private String password;
+    private String pledge;
 
     public Signup() {
         super();
     }
 
-    public Signup(String name, String address) {
+    public Signup(String name, String address, String password, String pledge) {
         this();
         this.name = name;
         this.address = address;
+        this.password = password;
+        this.pledge = pledge;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPledge() {
+        return pledge;
     }
 
     public String getName() {
@@ -33,6 +45,10 @@ public class Signup extends AbstractPersistable<Long> {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void changePledge(String newPledge) {
+        this.pledge = newPledge;
     }
 
 }

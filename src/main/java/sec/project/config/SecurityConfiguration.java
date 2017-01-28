@@ -18,10 +18,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Override
+  @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // no real security at the moment
+        // you can access the h2-console through /h2-console
+        // connection string: jdbc:h2:mem:testdb
+        http.csrf().disable();
+        http.headers().frameOptions().sameOrigin();
+        
         http.authorizeRequests()
+                .antMatchers("/h2-console/*").permitAll()
                 .anyRequest().permitAll();
     }
 
