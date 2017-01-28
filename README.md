@@ -62,10 +62,50 @@ Here the only defence is requiring user interaction, by having them re-enter the
 - This is a Java application, try a jpa injection: name: USERNAME'--
 - Login as USERNAME
 
+###Possible consequence
+The attacker can now log in as any user.
+
 ###Remediation
 Do not use string concatenation when making database queries!!!!!!!
 For each language there are dedicated frameworks that help you execute queries on your database. For example you can use parameterized or named queries, effectevely disabling any attempt to alter the syntax tree of the query.
 Do input sanitation
 
 ##Flaw 4: Missing function level access control
+
+###Location
+/done
+
+Try using the hidden admin functionality ;)
+
+
+##reproduction steps
+- go the the /done page, adding the admin=1 url parameter
+- remove a user
+- capture this request
+- This request can be resubmitted without being an admin, or having ever visited the admin page
+
+###Possible consequence
+Admin functions are not checked server side, and can be submitted by anyone
+
+###Remediation
+Always protect functions at the server side (business logic).
+
+##Flaw 5: A2-Broken Authentication and Session Management
+
+###Location
+/done mostly
+
+###Reproduction steps
+- Go the the /done page
+- Establish that session id is just an integer with a very predictable pattern
+- Change your sessionId cookie (use any modern browser)
+- Change the pledge of someone else
+
+###Possible consequence
+SessionIds are very valuable, since stealing one enables the attacker to impersonate the user.
+
+###Remediation
+Use an unpredictable, very long session id. The framework you use will be able to do so (like spring sessions)
+
+
 
